@@ -1,3 +1,5 @@
+import MobileNav from "./components/MobileNav";
+
 const experience = [
   {
     company: "Adobe",
@@ -131,10 +133,11 @@ export default function Home() {
         className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06]"
         style={{ background: "rgba(2,6,23,0.85)", backdropFilter: "blur(12px)" }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <span className="font-playfair text-white text-xl font-bold tracking-widest">
             CS
           </span>
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {["About", "Experience", "Education", "Personal"].map((item) => (
               <a
@@ -152,6 +155,8 @@ export default function Home() {
               Contact
             </a>
           </div>
+          {/* Mobile hamburger */}
+          <MobileNav />
         </div>
       </nav>
 
@@ -182,7 +187,7 @@ export default function Home() {
           style={{ background: "linear-gradient(to left, transparent, #f59e0b)" }}
         />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
           {/* Company chips */}
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10 anim-fade-in delay-1">
             {["Adobe", "Google", "Bain & Co", "Harvard"].map((c) => (
@@ -210,9 +215,9 @@ export default function Home() {
           </h1>
 
           {/* Title */}
-          <p className="font-sans text-slate-400 text-sm tracking-[0.35em] uppercase mb-8 anim-fade-in delay-3">
-            Director &amp; Head of Strategy &nbsp;·&nbsp; AI Go-to-Market
-            &nbsp;·&nbsp; Growth
+          <p className="font-sans text-slate-400 text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.35em] uppercase mb-8 anim-fade-in delay-3">
+            Director &amp; Head of Strategy
+            <span className="hidden sm:inline"> &nbsp;·&nbsp; AI Go-to-Market &nbsp;·&nbsp; Growth</span>
           </p>
 
           {/* Tagline */}
@@ -223,18 +228,18 @@ export default function Home() {
           </p>
 
           {/* CTAs */}
-          <div className="flex items-center justify-center gap-4 anim-fade-in delay-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 anim-fade-in delay-5">
             <a
               href="https://linkedin.com/in/christieshen"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans bg-amber-400 text-slate-950 px-8 py-3 rounded-full font-semibold text-sm hover:bg-amber-300 transition-all hover:scale-105 shadow-lg"
+              className="font-sans bg-amber-400 text-slate-950 w-48 sm:w-auto text-center px-8 py-3 rounded-full font-semibold text-sm hover:bg-amber-300 transition-all hover:scale-105 shadow-lg"
             >
               LinkedIn
             </a>
             <a
               href="mailto:shen12christie@gmail.com"
-              className="font-sans text-slate-300 px-8 py-3 rounded-full text-sm hover:text-amber-400 transition-colors border border-slate-600/50"
+              className="font-sans text-slate-300 w-48 sm:w-auto text-center px-8 py-3 rounded-full text-sm hover:text-amber-400 transition-colors border border-slate-600/50"
             >
               Get in Touch
             </a>
@@ -256,8 +261,8 @@ export default function Home() {
       </section>
 
       {/* ── Impact Stats ───────────────────────────────────── */}
-      <section className="bg-amber-400 py-12">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="bg-amber-400 py-10 md:py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-playfair text-4xl md:text-5xl font-bold text-slate-950 mb-1">
@@ -272,8 +277,8 @@ export default function Home() {
       </section>
 
       {/* ── About ──────────────────────────────────────────── */}
-      <section id="about" className="bg-stone-50 py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="about" className="bg-stone-50 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <span className="font-sans text-xs text-amber-600 tracking-widest uppercase mb-4 block">
@@ -320,12 +325,12 @@ export default function Home() {
       </section>
 
       {/* ── Experience ─────────────────────────────────────── */}
-      <section id="experience" className="bg-slate-950 py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="experience" className="bg-slate-950 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <span className="font-sans text-xs text-amber-400 tracking-widest uppercase mb-4 block">
             Experience
           </span>
-          <h2 className="font-playfair text-4xl md:text-5xl text-white leading-tight mb-16">
+          <h2 className="font-playfair text-4xl md:text-5xl text-white leading-tight mb-10 md:mb-16">
             A career defined
             <br />
             by impact
@@ -342,22 +347,22 @@ export default function Home() {
                   className="absolute left-0 top-1 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-amber-400/40 bg-slate-800 group-hover:bg-amber-400 transition-colors"
                 />
 
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                  <div>
-                    <span className={`font-playfair text-2xl font-semibold ${role.color}`}>
+                <div className="mb-4">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                    <span className={`font-playfair text-xl sm:text-2xl font-semibold ${role.color}`}>
                       {role.company}
                     </span>
-                    <span className="font-sans text-slate-400 text-sm ml-3">
-                      {role.role}
+                    <span className="font-sans text-sm text-amber-400 shrink-0">
+                      {role.period}
                     </span>
                   </div>
-                  <div className="text-right shrink-0">
-                    <div className="font-sans text-sm text-amber-400">
-                      {role.period}
-                    </div>
-                    <div className="font-sans text-xs text-slate-600">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1">
+                    <span className="font-sans text-slate-400 text-sm">
+                      {role.role}
+                    </span>
+                    <span className="font-sans text-xs text-slate-600">
                       {role.location}
-                    </div>
+                    </span>
                   </div>
                 </div>
 
@@ -380,12 +385,12 @@ export default function Home() {
       </section>
 
       {/* ── Education ──────────────────────────────────────── */}
-      <section id="education" className="bg-white py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="education" className="bg-white py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <span className="font-sans text-xs text-amber-600 tracking-widest uppercase mb-4 block">
             Education
           </span>
-          <h2 className="font-playfair text-4xl md:text-5xl text-slate-900 leading-tight mb-16">
+          <h2 className="font-playfair text-4xl md:text-5xl text-slate-900 leading-tight mb-10 md:mb-16">
             Built on a foundation
             <br />
             of excellence
@@ -434,15 +439,15 @@ export default function Home() {
       </section>
 
       {/* ── Personal ───────────────────────────────────────── */}
-      <section id="personal" className="bg-amber-50 py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="personal" className="bg-amber-50 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <span className="font-sans text-xs text-amber-600 tracking-widest uppercase mb-4 block">
             Personal
           </span>
           <h2 className="font-playfair text-4xl md:text-5xl text-slate-900 leading-tight mb-4">
             Beyond the boardroom
           </h2>
-          <p className="font-sans text-slate-600 text-lg mb-14 max-w-xl">
+          <p className="font-sans text-slate-600 text-lg mb-10 md:mb-14 max-w-xl">
             A life fully lived — from orchestrating galas for 400+ at the New
             York City Ballet to leading volunteer teams across the city.
           </p>
@@ -467,8 +472,8 @@ export default function Home() {
       </section>
 
       {/* ── Footer ─────────────────────────────────────────── */}
-      <footer className="bg-slate-950 py-16 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto px-6">
+      <footer className="bg-slate-950 py-12 md:py-16 border-t border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
             <div>
               <div className="font-playfair text-3xl text-white font-bold mb-1">
